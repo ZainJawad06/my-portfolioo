@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #fff8f5;
+  --color-surface-dim: #e2d8d3;
+  --color-surface-bright: #fff8f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fcf2ec;
+  --color-surface-container: #f6ece6;
+  --color-surface-container-high: #f0e6e1;
+  --color-surface-container-highest: #eae1db;
+  --color-on-surface: #1f1b18;
+  --color-on-surface-variant: #5a403c;
+  --color-inverse-surface: #342f2c;
+  --color-inverse-on-surface: #f9efe9;
+  --color-outline: #8e706b;
+  --color-outline-variant: #e3beb9;
+  --color-surface-tint: #b5261a;
+  --color-primary: #950906;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #b8281c;
+  --color-on-primary-container: #ffd1ca;
+  --color-secondary: #7e5700;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #fdc668;
+  --color-on-secondary-container: #765100;
+  --color-tertiary: #534734;
+  --color-tertiary-container: #6c5e4a;
+  --color-on-tertiary-container: #ecd9c0;
+  --color-paper-base: #eadfc6;
+  --color-paper-muted: #d9ccad;
+  --color-paper-aged: #b9a97f;
+  --color-ink-deep: #16120f;
+  --color-ink-black: #000000;
+  --color-stamp-red: #b8281c;
+  --color-brick-red: #9c2016;
+  --color-brass-gold: #c8963e;
+  --color-crt-phosphor: #f6ecd4;
+  --color-crt-glow: #eed296;
+  --color-peach-highlight: #e9a98c;
+
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-mono: "Courier Prime", "Courier New", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-mono);
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-family: var(--font-mono);
+  }
+
+  h1, h2, h3, h4, .font-serif-broadsheet {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom Broadsheet Grid & Texture */
+.newspaper-grid {
+  background-image: 
+    linear-gradient(to right, rgba(22, 18, 15, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 18, 15, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.vintage-paper-fibers {
+  background-image: radial-gradient(#16120f 0.5px, transparent 0.5px), radial-gradient(#b8281c 0.5px, transparent 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 0.035;
+}
+
+/* Hard Broadsheet Shadows */
+.shadow-stamp {
+  box-shadow: 3px 3px 0 var(--color-ink-deep);
+}
+
+.shadow-stamp-lg {
+  box-shadow: 4px 4px 0 var(--color-ink-deep);
+}
+
+.shadow-vermilion {
+  box-shadow: 6px 6px 0 var(--color-stamp-red);
+}
+
+.shadow-vermilion-lg {
+  box-shadow: 8px 8px 0 var(--color-stamp-red);
+}
+
+.shadow-folio {
+  box-shadow: 10px 10px 0 var(--color-stamp-red);
+}
+
+.shadow-brass {
+  box-shadow: 4px 4px 0 var(--color-brass-gold);
+}
+
+.shadow-inset-metal {
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.4), inset -2px -2px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Vintage CRT Phosphor Glow */
+.text-phosphor-glow {
+  text-shadow: 0 0 10px rgba(238, 210, 150, 0.65);
+}
+
+/* Mechanical Split Flap Perspective */
+.split-flap-container {
+  perspective: 400px;
+}
+
+.split-flap-top {
+  transform-origin: bottom center;
+}
+
+.split-flap-bottom {
+  transform-origin: top center;
+}
+
+/* Custom Scrollbar for vintage broadsheet */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f6ece6;
+  border-left: 2px solid #16120f;
+}
+::-webkit-scrollbar-thumb {
+  background: #b8281c;
+  border: 2px solid #16120f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #950906;
+}
